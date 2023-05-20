@@ -27,7 +27,7 @@ html, body, main {
 
 html {
   background:
-    url("https://www.tieroneoss.com/wp-content/uploads/2018/06/cogs.gif")
+    url("../assets/cogs.gif")
     no-repeat
     center center /
     min(50vw, 240px) auto;
