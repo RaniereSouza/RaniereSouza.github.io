@@ -10,8 +10,8 @@
   --default-spacing-x: .75rem;
   --default-spacing-y: .5rem;
   --default-spacing: var(--default-spacing-y) var(--default-spacing-x);
-  --highlight-color: hsl(225, 73%, 57%); /* royalblue #4169e1 */
-  --highlight-color-darker: hsl(225, 73%, 47%); /* royalblue (-10% luminosity) */
+  --highlight-color: hsl(217, 71%, 55%); /* rgb(57, 119, 222) #3977de */
+  --highlight-color-darker: hsl(217, 71%, 45%); /* rgb(33, 96, 196) #2160c4 */
 }
 
 * {
@@ -21,7 +21,7 @@
 
 html, body, main {
   width: 100vw;
-  height: 100vh;
+  height: min(100vh, 100%);
   overflow: hidden;
 }
 
@@ -30,7 +30,7 @@ html {
     url("https://www.tieroneoss.com/wp-content/uploads/2018/06/cogs.gif")
     no-repeat
     center center /
-    min(50vw, 320px) auto;
+    min(50vw, 240px) auto;
   font-size: 16px; /* 1rem */
 }
 
@@ -81,7 +81,7 @@ button:not(:disabled) {
 }
 
 footer {
-  position: absolute;
+  position: fixed;
   display: flex;
   align-items: center;
   gap: calc(var(--default-spacing-x) / 3);
