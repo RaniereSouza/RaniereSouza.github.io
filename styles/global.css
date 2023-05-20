@@ -27,7 +27,7 @@ html, body, main {
 
 html {
   background:
-    url("../assets/cogs.gif")
+    url("../assets/cogs-optimized.gif")
     no-repeat
     center center /
     min(50vw, 240px) auto;
