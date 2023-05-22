@@ -1,10 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Fira+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code&display=swap');
 @import url('https://fonts.googleapis.com/icon?family=Material+Icons');
 
 :root {
   --title-font: 'Raleway', sans-serif;
   --regular-font: 'Fira Sans', sans-serif;
+  --code-font: 'Fira Code', monospace;
   --font-color-dark: #333;
   --font-color-light: #fff;
   --default-spacing-x: .75rem;
@@ -12,6 +14,7 @@
   --default-spacing: var(--default-spacing-y) var(--default-spacing-x);
   --highlight-color: hsl(217, 71%, 55%); /* rgb(57, 119, 222) #3977de */
   --highlight-color-darker: hsl(217, 71%, 45%); /* rgb(33, 96, 196) #2160c4 */
+  --default-shadow: .125rem .25rem .5rem rgba(0, 0, 0, .75);
 }
 
 * {
@@ -26,11 +29,6 @@ html, body, main {
 }
 
 html {
-  background:
-    url("../assets/cogs-optimized.gif")
-    no-repeat
-    center center /
-    min(50vw, 240px) auto;
   font-size: 16px; /* 1rem */
 }
 
@@ -59,53 +57,15 @@ h4::first-letter, h5::first-letter, h6::first-letter {
   color: var(--highlight-color);
 }
 
-h1 {
-  text-align: center;
-}
-
-@media screen and (max-width: 575px) {
-  h1 {
-    margin: .5rem 0;
-  }
-}
-
-@media screen and (max-height: 450px) {
-  h1 {
-    text-align: left;
-    padding-left: var(--default-spacing-x);
-  }
-}
-
 button:not(:disabled) {
   cursor: pointer;
 }
 
-footer {
-  position: fixed;
-  display: flex;
-  align-items: center;
-  gap: calc(var(--default-spacing-x) / 3);
-  right: var(--default-spacing-x);
-  bottom: var(--default-spacing-y);
-  padding: var(--default-spacing);
+code, pre {
+  font-family: var(--code-font);
 }
 
-@media screen and (max-width: 575px) {
-  footer {
-    right: 0;
-    bottom: 0;
-  }
-}
-
-@media screen and (max-width: 439px) {
-  footer {
-    right: 50vw;
-    transform: translateX(50%);
-    width: max-content;
-  }
-}
-
-.title-highlight {
+.highlighted-text {
   color: var(--highlight-color);
 }
 
@@ -128,6 +88,21 @@ footer {
   background-color: var(--highlight-color-darker);
 }
 
+.default-btn > .material-icons {
+  font-size: 1rem;
+}
+
 .pill-btn {
   border-radius: 1rem;
+}
+
+.text-box {
+  background-color: rgba(255, 255, 255, .75);
+  padding: var(--default-spacing);
+  border-radius: .25rem;
+  line-height: 1.25rem;
+}
+
+.elevated {
+  box-shadow: var(--default-shadow);
 }
