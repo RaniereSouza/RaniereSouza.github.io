@@ -14,7 +14,15 @@
   --default-spacing: var(--default-spacing-y) var(--default-spacing-x);
   --highlight-color: hsl(217, 71%, 55%); /* rgb(57, 119, 222) #3977de */
   --highlight-color-darker: hsl(217, 71%, 45%); /* rgb(33, 96, 196) #2160c4 */
-  --default-shadow: .125rem .25rem .5rem rgba(0, 0, 0, .75);
+  --default-shadow: .125rem .25rem .5rem rgba(0, 0, 0, .5);
+  --default-border-radius: .375rem;
+
+  /* Bootstrap breakpoints */
+  --breakpoint-xs: 576px;
+  --breakpoint-sm: 768px;
+  --breakpoint-md: 992px;
+  --breakpoint-lg: 1200px;
+  --breakpoint-xl: 1440px;
 }
 
 * {
@@ -37,9 +45,21 @@ html {
   font-size: 16px; /* 1rem */
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (min-width: 1440px) {
+  html {
+    font-size: 18px;
+  }
+}
+
+@media screen and (max-width: 991px) {
   html {
     font-size: 15px;
+  }
+}
+
+@media screen and (max-width: 575px) {
+  html {
+    font-size: 14px;
   }
 }
 
@@ -110,7 +130,7 @@ code, pre {
 .text-box {
   background-color: rgba(255, 255, 255, .75);
   padding: var(--default-spacing);
-  border-radius: .375rem;
+  border-radius: var(--default-border-radius);
   line-height: 1.5rem;
 }
 
