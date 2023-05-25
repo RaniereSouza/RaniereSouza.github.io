@@ -127,6 +127,7 @@ export default /* css */`
   }
 
   section#start a[href="#about-me"], section#start a[href="#portfolio"] {
+    color: var(--highlight-color-darker);
     animation: blink-underscore 1.25s infinite ease;
   }
 
