@@ -14,9 +14,10 @@ export default defineComponent({
       showNav.value = !showNav.value;
     }
 
-    function navigateHome(event) {
+    function scrollToSection(event) {
+      event.preventDefault();
       showNav.value = false;
-      console.log(event.target);
+      document.querySelector(event.target.hash)?.scrollIntoView({behavior: 'smooth'});
     }
 
     useStyle(style);
@@ -24,7 +25,7 @@ export default defineComponent({
     return {
       showNav,
       toggleShowNav,
-      navigateHome,
+      scrollToSection,
     };
   },
 });

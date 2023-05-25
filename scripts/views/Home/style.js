@@ -1,6 +1,7 @@
 export default /* css */`
   main {
     overflow-y: auto;
+    scroll-behavior: smooth;
   }
 
   header {
@@ -98,7 +99,7 @@ export default /* css */`
     width: 100vw;
     min-height: min(100vh, 100%);
     background-color: #f0f4f8;
-    padding: 1.25rem 0;
+    padding: 1.25rem 0 2.5rem 0;
   }
 
   section:nth-child(odd) {
@@ -123,6 +124,22 @@ export default /* css */`
     text-decoration: underline;
     text-decoration-color: var(--highlight-color-darker);
     font-weight: 600;
+  }
+
+  section#start a[href="#about-me"], section#start a[href="#portfolio"] {
+    animation: blink-underscore 1.25s infinite ease;
+  }
+
+  @keyframes blink-underscore {
+    0% {
+      text-decoration-color: transparent;
+    }
+    50% {
+      text-decoration-color: var(--highlight-color-darker);
+    }
+    100% {
+      text-decoration-color: transparent;
+    }
   }
 
   .profile-pic {
