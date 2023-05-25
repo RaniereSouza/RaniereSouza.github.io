@@ -1,8 +1,8 @@
 import { createRouter, createWebHistory } from 'vue-router';
 
-import Maintenance from '../views/Maintenance.js';
-import NotFound from '../views/NotFound.js';
-import Home from '../views/Home.js';
+import Maintenance from '../views/Maintenance/index.js';
+import NotFound from '../views/NotFound/index.js';
+import Home from '../views/Home/index.js';
 
 const routes = [
   {path: '/', name: 'initial', alias: ['/index.html'], redirect: '/work-in-progress'},
