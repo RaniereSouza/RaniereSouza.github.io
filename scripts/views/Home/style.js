@@ -7,7 +7,7 @@ export default /* css */`
   header {
     position: fixed;
     top: 1rem;
-    right: 1.5rem;
+    right: max(calc(40vw - (var(--default-contained-width) / 2)), 2.5vw);
     z-index: 1;
   }
 
@@ -46,12 +46,44 @@ export default /* css */`
     padding: 0 var(--default-spacing-x) 0 calc(var(--default-spacing-x) * 2);
     width: calc(100% - var(--nav-btn-size));
     overflow: hidden;
-    transition: width .2s ease, padding .2s ease;
+    transition: width .2s ease, height .2s ease, padding .2s ease;
   }
 
   nav.collapsed .nav-links {
     padding: 0;
     width: 0;
+  }
+
+  @media screen and (max-width: 575px) {
+    body.backdrop-shadow::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color:rgba(0, 0, 0, .125);
+      -webkit-backdrop-filter: blur(.25rem);
+      backdrop-filter: blur(.25rem);
+    }
+
+    nav {
+      border-bottom-right-radius: var(--default-border-radius);
+      height: auto;
+      align-items: flex-start;
+      border: none;
+    }
+
+    nav .nav-links {
+      flex-direction: column;
+      align-items: flex-end;
+      padding-top: var(--nav-btn-size);
+      padding-bottom: var(--nav-btn-size);
+      gap: var(--nav-btn-size);
+      margin-right: -0.75rem;
+    }
   }
 
   nav .nav-links a {
@@ -107,7 +139,7 @@ export default /* css */`
   }
 
   section > * {
-    max-width: min(90vw, 45rem);
+    max-width: var(--default-contained-width);
     text-align: center;
   }
 
@@ -145,7 +177,7 @@ export default /* css */`
 
   .profile-pic {
     overflow: hidden;
-    width: min(50vw, 15rem);
+    width: min(50vw, 12.5rem);
     height: auto;
     border-radius: 50%;
   }

@@ -22,7 +22,7 @@ export default /* html */`
   <section id="start">
     <h1>Welcome, Traveler!</h1>
     <img class="profile-pic" src="../assets/profile-pic.jpg" alt="RS" title="Raniere Souza Santos"/>
-    <p class="text-box">Learn a little bit <a class="highlighted-text" href="#about-me" @click="scrollToSection">about me</a>, my <a class="highlighted-text" href="#portfolio" @click="scrollToSection">work</a> and my interests &#x1F604;</p>
+    <p class="text-box">I'm <span class="highlighted-text">Raniere</span>, and I'm a <span class="highlighted-text">Programmer/Software Developer</span>. Learn a little bit <a class="highlighted-text" href="#about-me" @click="scrollToSection">about me</a>, my <a class="highlighted-text" href="#portfolio" @click="scrollToSection">work</a> and my interests &#x1F604;</p>
   </section>
 
   <section id="about-me">

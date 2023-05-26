@@ -16,6 +16,7 @@
   --highlight-color-darker: hsl(217, 71%, 42.5%); /* rgb(31, 89, 183) #1f59b7 */
   --default-shadow: .125rem .25rem .5rem rgba(0, 0, 0, .5);
   --default-border-radius: .375rem;
+  --default-contained-width: min(90vw, 45rem);
 
   /* Bootstrap breakpoints */
   --breakpoint-xs: 576px;
