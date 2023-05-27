@@ -1,5 +1,5 @@
 {
-  "name": "portfolio-github-pages",
+  "name": "ranieresouza.github.io",
   "version": "0.1.0",
   "description": "",
   "main": "dist/index.html",
@@ -10,7 +10,7 @@
     "serve:build": "vite preview"
   },
   "keywords": [],
-  "author": "",
+  "author": "Raniere de Souza Santos <raniere.souza.cc@gmail.com>",
   "license": "ISC",
   "devDependencies": {
     "@vitejs/plugin-vue": "^4.2.3",

@@ -251,6 +251,7 @@
 
   section > *:first-child {
     margin-top: 0;
+    margin-bottom: 2rem;
   }
 
   section > *:last-child {

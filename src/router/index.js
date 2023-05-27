@@ -1,9 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router';
 
-// import Home from '../views/Home.vue';
-// import NotFound from '../views/NotFound.vue';
-// import Maintenance from '../views/Maintenance.vue';
-
 const routes = [
   {path: '/', name: 'initial', alias: ['/index.html'], redirect: '/home'},
   {path: '/home', component: () => import('../views/Home.vue'), name: 'home'},
