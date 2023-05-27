@@ -1,5 +1,19 @@
-export default /* css */`
-  html {
+<template>
+  <main>
+    <h1>
+      Work In Progress<span class="highlighted-text">...</span>
+    </h1>
+
+    <footer>
+      Go to my <a class="default-btn pill-btn" href="https://github.com/RaniereSouza">
+        GitHub Profile <span class="material-icons">north_east</span>
+      </a>
+    </footer>
+  </main>
+</template>
+
+<style scoped>
+  main {
     background:
       url("../assets/cogs-optimized.gif")
       no-repeat
@@ -48,4 +62,4 @@ export default /* css */`
       width: max-content;
     }
   }
-`;
+</style>
