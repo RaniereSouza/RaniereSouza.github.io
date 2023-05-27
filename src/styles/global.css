@@ -1,42 +1,66 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Fira+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code&display=swap');
 @import url('https://fonts.googleapis.com/icon?family=Material+Icons');
 
 :root {
   --title-font: 'Raleway', sans-serif;
   --regular-font: 'Fira Sans', sans-serif;
+  --code-font: 'Fira Code', monospace;
   --font-color-dark: #333;
   --font-color-light: #fff;
   --default-spacing-x: .75rem;
   --default-spacing-y: .5rem;
   --default-spacing: var(--default-spacing-y) var(--default-spacing-x);
   --highlight-color: hsl(217, 71%, 55%); /* rgb(57, 119, 222) #3977de */
-  --highlight-color-darker: hsl(217, 71%, 45%); /* rgb(33, 96, 196) #2160c4 */
+  --highlight-color-darker: hsl(217, 71%, 42.5%); /* rgb(31, 89, 183) #1f59b7 */
+  --default-shadow: .125rem .25rem .5rem rgba(0, 0, 0, .5);
+  --default-border-radius: .375rem;
+  --default-contained-width: min(90vw, 45rem);
+
+  /* Bootstrap breakpoints */
+  --breakpoint-xs: 576px;
+  --breakpoint-sm: 768px;
+  --breakpoint-md: 992px;
+  --breakpoint-lg: 1200px;
+  --breakpoint-xl: 1440px;
 }
 
 * {
   position: relative;
   box-sizing: border-box;
+  scrollbar-width: thin;
 }
 
-html, body, main {
+*::-webkit-scrollbar {
+  width: .5rem;
+}
+
+html, body, main, #app {
   width: 100vw;
   height: min(100vh, 100%);
   overflow: hidden;
 }
 
 html {
-  background:
-    url("../assets/cogs-optimized.gif")
-    no-repeat
-    center center /
-    min(50vw, 240px) auto;
   font-size: 16px; /* 1rem */
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (min-width: 1440px) {
+  html {
+    font-size: 20px;
+  }
+}
+
+@media screen and (max-width: 991px) {
   html {
     font-size: 15px;
+  }
+}
+
+@media screen and (max-width: 575px) {
+  html {
+    font-size: 14px;
   }
 }
 
@@ -52,6 +76,7 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--title-font);
+  letter-spacing: .125em;
 }
 
 h1::first-letter, h2::first-letter, h3::first-letter,
@@ -59,53 +84,20 @@ h4::first-letter, h5::first-letter, h6::first-letter {
   color: var(--highlight-color);
 }
 
-h1 {
-  text-align: center;
-}
-
-@media screen and (max-width: 575px) {
-  h1 {
-    margin: .5rem 0;
-  }
-}
-
-@media screen and (max-height: 450px) {
-  h1 {
-    text-align: left;
-    padding-left: var(--default-spacing-x);
-  }
+button {
+  border: none;
+  outline: none;
 }
 
 button:not(:disabled) {
   cursor: pointer;
 }
 
-footer {
-  position: fixed;
-  display: flex;
-  align-items: center;
-  gap: calc(var(--default-spacing-x) / 3);
-  right: var(--default-spacing-x);
-  bottom: var(--default-spacing-y);
-  padding: var(--default-spacing);
+code, pre {
+  font-family: var(--code-font);
 }
 
-@media screen and (max-width: 575px) {
-  footer {
-    right: 0;
-    bottom: 0;
-  }
-}
-
-@media screen and (max-width: 439px) {
-  footer {
-    right: 50vw;
-    transform: translateX(50%);
-    width: max-content;
-  }
-}
-
-.title-highlight {
+.highlighted-text {
   color: var(--highlight-color);
 }
 
@@ -128,6 +120,21 @@ footer {
   background-color: var(--highlight-color-darker);
 }
 
+.default-btn > .material-icons {
+  font-size: 1rem;
+}
+
 .pill-btn {
   border-radius: 1rem;
+}
+
+.text-box {
+  background-color: rgba(255, 255, 255, .75);
+  padding: var(--default-spacing);
+  border-radius: var(--default-border-radius);
+  line-height: 1.5rem;
+}
+
+.elevated {
+  box-shadow: var(--default-shadow);
 }
