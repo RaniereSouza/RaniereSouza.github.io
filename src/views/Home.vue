@@ -70,6 +70,16 @@
       <p class="text-box">(Soon...)</p>
     </section>
 
+    <section id="resume">
+      <h2>Resume</h2>
+
+      <iframe
+        src="https://drive.google.com/file/d/1qEuA4XMU-3Dds3XmjNG9KIujXZ9EmJpw/preview"
+        title="Resume PDF Preview from Google Drive"
+        allow="autoplay,fullscreen"
+      />
+    </section>
+
     <footer>
       &copy;Raniere Souza Santos, {{currentYear}}
     </footer>
@@ -100,6 +110,7 @@
     {href: '#start', textContent: 'Start', action: scrollToSection},
     {href: '#about-me', textContent: 'About Me', action: scrollToSection},
     {href: '#portfolio', textContent: 'Works and Projects', action: scrollToSection},
+    {href: '#resume', textContent: 'Resume', action: scrollToSection},
     {href: 'https://github.com/RaniereSouza', textContent: /* html */`
       GitHub Profile <span class="material-icons">north_east</span>
     `},
@@ -164,7 +175,7 @@
     justify-content: center;
     width: 100vw;
     min-height: min(100vh, 100%);
-    background-color: hsl(217, 71%, 98%);
+    background-color: hsl(217, 71%, 96%);
     padding: 1.25rem 0 2.5rem 0;
   }
 
@@ -226,6 +237,11 @@
     background-blend-mode: lighten;
     background-size: max(50vw, 50vh) auto;
     background-position: center center;
+  }
+
+  section#resume iframe {
+    width: var(--default-contained-width);
+    height: 75vh;
   }
 
   @keyframes blink-underscore {
