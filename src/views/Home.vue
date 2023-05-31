@@ -22,8 +22,12 @@
 
     <section id="start">
       <h1>Welcome, Traveler!</h1>
+
       <img class="profile-pic" src="../assets/profile-pic.jpg" alt="RS" title="Raniere Souza Santos"/>
+
       <p class="text-box">I'm <span class="highlighted-text">Raniere</span>, and I'm a <span class="highlighted-text">Programmer/Software Developer</span>. Learn a little bit <a class="highlighted-text" href="#about-me" @click="scrollToSection">about me</a>, my <a class="highlighted-text" href="#portfolio" @click="scrollToSection">work</a> and my interests &#x1F604;</p>
+
+      <waves />
     </section>
 
     <section id="about-me">
@@ -89,6 +93,8 @@
 <script setup>  
   import { ref } from 'vue';
 
+  import Waves from '../components/animations/Waves.vue';
+
   const showNav = ref(false);
 
   function toggleShowNav() {
@@ -105,6 +111,10 @@
 </script>
 
 <style scoped>
+  * {
+    z-index: 1;
+  }
+
   main {
     overflow-y: auto;
     scroll-behavior: smooth;
@@ -114,7 +124,7 @@
     position: fixed;
     top: 1rem;
     right: max(calc(40vw - (var(--default-contained-width) / 2)), 2.5vw);
-    z-index: 1;
+    z-index: 3;
   }
 
   nav, nav .nav-links {
@@ -129,6 +139,7 @@
 
     height: var(--nav-btn-size);
     border: 1px solid #e8e8e8;
+    border-right: none;
     border-radius: var(--nav-btn-half-size);
     border-top-left-radius: var(--default-border-radius);
     border-bottom-left-radius: var(--default-border-radius);
@@ -173,6 +184,7 @@
       background-color:rgba(0, 0, 0, .125);
       -webkit-backdrop-filter: blur(.25rem);
       backdrop-filter: blur(.25rem);
+      z-index: 2;
     }
 
     nav {
@@ -235,7 +247,7 @@
     align-items: center;
     justify-content: center;
     width: 100vw;
-    min-height: 100vh;
+    min-height: min(100vh, 100%);
     background-color: #f0f4f8;
     padding: 1.25rem 0 2.5rem 0;
   }
@@ -268,6 +280,23 @@
   section#start a[href="#about-me"], section#start a[href="#portfolio"] {
     color: var(--highlight-color-darker);
     animation: blink-underscore 1.25s infinite ease;
+  }
+
+  section#start #waves-animation {
+    position: absolute;
+    bottom: 0;
+    max-width: none;
+    width: 100vw;
+    z-index: 0;
+  }
+
+  section#about-me {
+    background-image:
+      url("../assets/doodle-chat-bg.webp"),
+      linear-gradient(#e0e4e8, #e0e4e8);
+    background-blend-mode: lighten;
+    background-size: max(50vw, 50vh) auto;
+    background-position: center center;
   }
 
   @keyframes blink-underscore {
