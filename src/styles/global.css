@@ -18,7 +18,7 @@
   --default-border-radius: .375rem;
   --default-contained-width: min(90vw, 45rem);
 
-  /* Bootstrap breakpoints */
+  /* Bootstrap-like breakpoints */
   --breakpoint-xs: 576px;
   --breakpoint-sm: 768px;
   --breakpoint-md: 992px;
@@ -34,6 +34,16 @@
 
 *::-webkit-scrollbar {
   width: .5rem;
+}
+
+@media screen and (max-width: 767px) {
+  * {
+    scrollbar-width: none;
+  }
+
+  *::-webkit-scrollbar {
+    width: 0;
+  }
 }
 
 html, body, main, #app {
