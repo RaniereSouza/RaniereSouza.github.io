@@ -1,27 +1,13 @@
 <template>
-  <main :class="{'backdrop-shadow': showNav}">
-    <header>
-      <nav :class="{collapsed: !showNav}">
-        <div class="nav-links">
-          <a href="#start" @click="scrollToSection">Start</a>
-          <a href="#about-me" @click="scrollToSection">About Me</a>
-          <a href="#portfolio" @click="scrollToSection">Works and Projects</a>
-          <a href="https://github.com/RaniereSouza">
-            GitHub Profile <span class="material-icons">north_east</span>
-          </a>
-        </div>
-
-        <button
-          class="material-icons menu-icon"
-          @click="toggleShowNav"
-        >
-          {{!showNav ? 'menu' : 'close'}}
-        </button>
-      </nav>
-    </header>
+  <main :class="{'nav-backdrop-shadow': showNav}" @scroll="toggleIsOddSection">
+    <nav-header
+      :class="{'on-odd-section': isOddSection}"
+      :nav-items="navItems"
+      v-model="showNav"
+    />
 
     <section id="start">
-      <h1>Welcome, Traveler!</h1>
+      <h1>Welcome, Traveler!<span class="highlighted-text blink">_</span></h1>
 
       <img class="profile-pic" src="../assets/profile-pic.jpg" alt="RS" title="Raniere Souza Santos"/>
 
@@ -80,35 +66,97 @@
 
     <section id="portfolio">
       <h2>Works and Projects</h2>
-      <!-- TODO -->
-      <p class="text-box">(Soon...)</p>
+      <carousel />
+    </section>
+
+    <section id="resume">
+      <h2>Resume</h2>
+
+      <iframe
+        src="https://drive.google.com/file/d/1qEuA4XMU-3Dds3XmjNG9KIujXZ9EmJpw/preview"
+        title="Resume PDF Preview from Google Drive"
+        allow="autoplay,fullscreen"
+      />
     </section>
 
     <footer>
-      <!-- TODO -->
+      &copy;Raniere Souza Santos, {{currentYear}}
     </footer>
   </main>
 </template>
 
-<script setup>  
+<script setup>
   import { ref } from 'vue';
 
-  import Waves from '../components/animations/Waves.vue';
+  import { remToPx } from '../lib/helpers/remToPx';
 
-  const showNav = ref(false);
+  import NavHeader from '../components/NavHeader.vue';
+  import Waves from '../components/animations/Waves.vue';
+  import Carousel from '../components/Carousel.vue';
+
+  const showNav = ref();
 
   function toggleShowNav() {
     showNav.value = !showNav.value;
   }
-
-  if (window.innerWidth >= 576) toggleShowNav();
 
   function scrollToSection(event) {
     event.preventDefault();
     if (showNav.value) toggleShowNav();
     document.querySelector(event.target.hash)?.scrollIntoView({behavior: 'smooth'});
   }
+
+  const navItems = [
+    {href: '#start', textContent: 'Start', action: scrollToSection},
+    {href: '#about-me', textContent: 'About Me', action: scrollToSection},
+    {href: '#portfolio', textContent: 'Works and Projects', action: scrollToSection},
+    {href: '#resume', textContent: 'Resume', action: scrollToSection},
+    {href: 'https://github.com/RaniereSouza', textContent: /* html */`
+      GitHub Profile <span class="material-icons">north_east</span>
+    `},
+  ];
+
+  const sectionTransitionThreshold = remToPx(2.5) + 1;
+
+  function getCurrentSection() {
+    let currenctSectionData;
+
+    Array.from(document.querySelectorAll('section')).some((section, index) => {
+      const rect = section.getClientRects()[0];
+
+      if (
+        (rect.top <= sectionTransitionThreshold) &&
+        (rect.bottom >= sectionTransitionThreshold)
+      ) {
+        currenctSectionData = {
+          id: section.id,
+          index: index,
+        };
+        return true;
+      }
+
+      return false;
+    });
+
+    return currenctSectionData;
+  }
+
+  const isOddSection = ref(false);
+
+  function toggleIsOddSection() {
+    const currentSection = getCurrentSection();
+    isOddSection.value = !!(currentSection?.index % 2);
+  }
+
+  const currentYear = (new Date()).getFullYear();
 </script>
+
+<style>
+  header.on-odd-section {
+    --highlight-color: hsl(127, 53%, 48%);
+    --highlight-color-darker: hsl(127, 53%, 35.5%);
+  }
+</style>
 
 <style scoped>
   * {
@@ -120,127 +168,6 @@
     scroll-behavior: smooth;
   }
 
-  header {
-    position: fixed;
-    top: 1rem;
-    right: max(calc(40vw - (var(--default-contained-width) / 2)), 2.5vw);
-    z-index: 3;
-  }
-
-  nav, nav .nav-links {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-  }
-
-  nav {
-    --nav-btn-size: 3rem;
-    --nav-btn-half-size: calc(var(--nav-btn-size) / 2);
-
-    height: var(--nav-btn-size);
-    border: 1px solid #e8e8e8;
-    border-right: none;
-    border-radius: var(--nav-btn-half-size);
-    border-top-left-radius: var(--default-border-radius);
-    border-bottom-left-radius: var(--default-border-radius);
-    background-color: #fff;
-    transition:
-      background-color .2s ease,
-      border-radius .2s ease,
-      border-color .2s ease;
-  }
-
-  nav.collapsed {
-    border-color: transparent;
-    border-top-left-radius: var(--nav-btn-half-size);
-    border-bottom-left-radius: var(--nav-btn-half-size);
-    background-color: transparent;
-  }
-
-  nav .nav-links {
-    gap: calc(var(--default-spacing-x) * 2);
-    margin-top: 1px;
-    padding: 0 var(--default-spacing-x) 0 calc(var(--default-spacing-x) * 2);
-    width: calc(100% - var(--nav-btn-size));
-    overflow: hidden;
-    transition: width .2s ease, height .2s ease, padding .2s ease;
-  }
-
-  nav.collapsed .nav-links {
-    padding: 0;
-    width: 0;
-  }
-
-  @media screen and (max-width: 575px) {
-    main.backdrop-shadow::after {
-      content: "";
-      position: fixed;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      background-color:rgba(0, 0, 0, .125);
-      -webkit-backdrop-filter: blur(.25rem);
-      backdrop-filter: blur(.25rem);
-      z-index: 2;
-    }
-
-    nav {
-      border-bottom-right-radius: var(--default-border-radius);
-      height: auto;
-      align-items: flex-start;
-      border: none;
-    }
-
-    nav .nav-links {
-      flex-direction: column;
-      align-items: flex-end;
-      padding-top: var(--nav-btn-size);
-      padding-bottom: var(--nav-btn-size);
-      gap: var(--nav-btn-size);
-      margin-right: -0.5rem;
-    }
-  }
-
-  nav .nav-links a {
-    display: flex;
-    align-items: center;
-    gap: calc(var(--default-spacing-x) / 3);
-    border-bottom: 1px solid transparent;
-    white-space: nowrap;
-    text-decoration: none;
-    color: var(--highlight-color);
-  }
-
-  nav .nav-links a:hover {
-    color: var(--highlight-color-darker);
-    border-color: var(--highlight-color-darker);
-  }
-
-  nav .nav-links a .material-icons {
-    font-size: 1rem;
-  }
-
-  nav .menu-icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: var(--nav-btn-size);
-    height: var(--nav-btn-size);
-    border: 1px solid var(--highlight-color);
-    border-radius: var(--nav-btn-half-size);
-    background-color: var(--highlight-color);
-    font-size: var(--nav-btn-half-size);
-    color: var(--font-color-light);
-    transition: background-color .2s, color .2s;
-  }
-
-  nav .menu-icon:hover {
-    background-color: var(--highlight-color-darker);
-  }
-
   section {
     display: flex;
     flex-direction: column;
@@ -248,12 +175,25 @@
     justify-content: center;
     width: 100vw;
     min-height: min(100vh, 100%);
-    background-color: #f0f4f8;
+    background-color: hsl(217, 71%, 96%);
     padding: 1.25rem 0 2.5rem 0;
   }
 
   section:nth-child(odd) {
-    background-color: #e0e4e8;
+    --highlight-color: hsl(127, 53%, 48%);
+    --highlight-color-darker: hsl(127, 53%, 35.5%);
+
+    background-color: hsl(127, 53%, 88%);
+  }
+
+  section + footer {
+    background-color: var(--highlight-color);
+    color: var(--font-color-light);
+  }
+
+  section:nth-child(odd) + footer {
+    --highlight-color: hsl(127, 53%, 48%);
+    --highlight-color-darker: hsl(127, 53%, 35.5%);
   }
 
   section > * {
@@ -299,6 +239,11 @@
     background-position: center center;
   }
 
+  section#resume iframe {
+    width: var(--default-contained-width);
+    height: 36rem;
+  }
+
   @keyframes blink-underscore {
     0% {
       text-decoration-color: transparent;
@@ -309,6 +254,11 @@
     100% {
       text-decoration-color: transparent;
     }
+  }
+
+  footer {
+    padding: var(--default-spacing);
+    text-align: center;
   }
 
   .profile-pic {
