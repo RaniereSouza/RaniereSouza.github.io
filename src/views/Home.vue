@@ -66,8 +66,7 @@
 
     <section id="portfolio">
       <h2>Works and Projects</h2>
-      <!-- TODO -->
-      <p class="text-box">(Soon...)</p>
+      <carousel />
     </section>
 
     <section id="resume">
@@ -93,6 +92,7 @@
 
   import NavHeader from '../components/NavHeader.vue';
   import Waves from '../components/animations/Waves.vue';
+  import Carousel from '../components/Carousel.vue';
 
   const showNav = ref();
 
@@ -241,7 +241,7 @@
 
   section#resume iframe {
     width: var(--default-contained-width);
-    height: 75vh;
+    height: 36rem;
   }
 
   @keyframes blink-underscore {
