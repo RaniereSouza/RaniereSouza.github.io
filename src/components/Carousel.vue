@@ -92,7 +92,7 @@
 
       <li class="carousel-card">
         <div class="carousel-card-img">
-          <a href="">
+          <a href="https://github.com/RaniereSouza/RaniereSouza.github.io" target="_blank">
             <img src="../assets/presentation-home.jpg" alt="" />
           </a>
         </div>

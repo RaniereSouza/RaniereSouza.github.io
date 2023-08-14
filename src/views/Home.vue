@@ -11,7 +11,7 @@
 
       <img class="profile-pic" src="../assets/profile-pic.jpg" alt="RS" title="Raniere Souza Santos"/>
 
-      <p class="text-box">I'm <span class="highlighted-text">Raniere</span>, and I'm a <span class="highlighted-text">Programmer/Software Developer</span>. Learn a little bit <a class="highlighted-text" href="#about-me" @click="scrollToSection">about me</a>, my <a class="highlighted-text" href="#portfolio" @click="scrollToSection">work</a> and my interests &#x1F604;</p>
+      <p class="text-box">I'm <span class="highlighted-text">Raniere</span>, and I'm a <span class="highlighted-text">Programmer/Software Developer</span>. Here you'll learn a little bit <a class="highlighted-text" href="#about-me" @click="scrollToSection">about me</a>, my <a class="highlighted-text" href="#portfolio" @click="scrollToSection">work</a> and my interests &#x1F604;</p>
 
       <waves />
     </section>
@@ -30,10 +30,11 @@
           <h3 class="topic-title">Technologies, Tools and Programming Languages</h3>
           <ul>
             <li><span class="highlighted-text">HTML/CSS/JavaScript</span>: The "meat and potatoes" (or for us Brazilians, "rice and beans") of Web and <span class="highlighted-text">Front-End</span> development. It's behind every page we access on the web, so we might as well know how to work with it.</li>
-            <li><span class="highlighted-text">Git</span>: Source code versioning is essential, it doesn't matter which category of Developer you are. And the most popular tool to do that is <span class="highlighted-text">Git</span>, so it's important to be confortable with it. I've also been working with cloud based repositories, like <span class="highlighted-text">GitHub</span>, <span class="highlighted-text">GitLab</span>, and <span class="highlighted-text">Bitbucket</span>.</li>
+            <li><span class="highlighted-text">Git</span>: Source code versioning is essential, it doesn't matter which category of Developer you are. And the most popular tool to do that is <span class="highlighted-text">Git</span>, so it's important to be confortable with it. I've also been working with cloud based repository platforms, like <span class="highlighted-text">GitHub</span>, <span class="highlighted-text">GitLab</span>, and <span class="highlighted-text">Bitbucket</span>.</li>
             <li><span class="highlighted-text">Vue.js</span>: The <span class="highlighted-text">JavaScript</span> community has been bubbling up with new libs, new packages, new frameworks, every day... But since 2021 I've chosen <span class="highlighted-text">Vue</span> as my favorite, with some influence of my current job (but I've been learning a bit of <span class="highlighted-text">React</span> too).</li>
             <li><span class="highlighted-text">Vite</span>: It's fast, it's very "to the point" and simple, and with a lot of available configuration, it's a really cool bundler/builder. It also works very well with <span class="highlighted-text">TypeScript</span>, <span class="highlighted-text">Vue</span>, <span class="highlighted-text">React</span>, and other technologies. It is currently my favorite bundler/builder.</li>
             <li><span class="highlighted-text">Automated Testing</span>: Pairing up with <span class="highlighted-text">Vite</span> we've got <span class="highlighted-text">Vitest</span> as a JavaScript <span class="highlighted-text">Unit Testing</span> platform. I really like it, but I also learned a bit of <span class="highlighted-text">Jest</span>, since it's more popular. I also learned to combine the <span class="highlighted-text">Cypress</span> platform for <span class="highlighted-text">End-to-End Testing</span> with the <span class="highlighted-text">Cucumber/Gherkin</span> technologies for <span class="highlighted-text">BDD</span> test scenarios.</li>
+            <li><span class="highlighted-text">Containers</span>: It's becoming more and more evident that knowing how to create, manage and use containers is essential for every developer. The most well known and reliable basic tools for it that we have today are <span class="highlighted-text">Docker</span> along with <span class="highlighted-text">Docker Compose</span>, so it's been a while since I've started my journey to dominate those tools.</li>
             <li>(More soon...)</li>
           </ul>
         </li>
@@ -56,7 +57,7 @@
             <li>I love <span class="highlighted-text">movies</span>! I think my favorite movie series is <span class="highlighted-text">The Lord Of The Rings</span> trilogy. Two great recommendations I have are <span class="highlighted-text">Spider-Man: Into The Spider-Verse</span> and <span class="highlighted-text">Everything Everywhere All At Once</span>.</li>
             <li>I love <span class="highlighted-text">music</span>! Jazz, Electronic, Rock, you name it, I dabble a little bit into everything. At first my favorite genre was <span class="highlighted-text">Metal</span> music, but I've been listening to <span class="highlighted-text">Hip-Hop</span> and <span class="highlighted-text">R&amp;B</span> a lot more recently. And of course, I cannot leave out my beloved <span class="highlighted-text">Brazilian music</span> (Samba, Funk, Pagode, Forró, etc).</li>
             <li>I've been watching <span class="highlighted-text">anime</span> since I was a teen, but in the lockdown times I begun watching it a lot more. Some personal recommendations are <span class="highlighted-text">Dr. Stone</span>, <span class="highlighted-text">Spy x Family</span>, and <span class="highlighted-text">Eizouken</span>.</li>
-            <li>I've been playing <span class="highlighted-text">tabletop roleplaying games</span> a lot, <span class="highlighted-text">Dungeons &amp; Dragons</span> more specifically. At one of the tables, the campaign has been going on for like, 5 years at least. (Related: I love <span class="highlighted-text">Critical Role</span>)</li>
+            <li>I've been playing <span class="highlighted-text">tabletop roleplaying games</span> a lot, <span class="highlighted-text">Dungeons &amp; Dragons</span> more specifically. At one of the tables, the campaign has been going on for like, 5 years at least! (Related: I love <span class="highlighted-text">Critical Role</span>)</li>
             <li>I've been practicing <span class="highlighted-text">Capoeira</span> for a few years now, I'm back to it since October 2022 after a looong break.</li>
             <li>I occasionally play the <span class="highlighted-text">bass guitar</span>, I love it but I've not been practicing a lot.</li>
           </ul>
@@ -275,7 +276,7 @@
 
   .topics-list .topic {
     width: calc(100% - 4rem);
-    padding: 1rem 1.5rem;
+    padding: 1.5rem 3rem 2rem 3rem;
   }
 
   .topics-list .topic:nth-of-type(even) {
@@ -289,6 +290,7 @@
   @media screen and (max-width: 767px) {
     .topics-list .topic {
       width: 100%;
+      padding: .75rem 1rem;
     }
 
     .topics-list .topic:nth-of-type(even) {
@@ -305,10 +307,10 @@
   }
 
   .topics-list .topic::before {
-    content: 'arrow_left';
+    content: 'arrow_right';
     font-family: 'Material Icons';
     position: absolute;
-    left: calc(-1.5rem - .25rem);
+    right: calc(-1.5rem - .25rem);
     top: 50%;
     transform: translateY(-50%);
     overflow: hidden;
@@ -322,9 +324,9 @@
   }
 
   .topics-list .topic:nth-of-type(odd)::before {
-    content: 'arrow_right';
-    left: auto;
-    right: calc(-1.5rem - .25rem);
+    content: 'arrow_left';
+    right: auto;
+    left: calc(-1.5rem - .25rem);
   }
 
   .topics-list .topic > * {
