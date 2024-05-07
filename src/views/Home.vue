@@ -22,7 +22,7 @@
         <li class="text-box topic">
           <h3 class="topic-title">Who Am I</h3>
           <ul>
-            <li>Hello! My name is <span class="highlighted-text">Raniere Souza Santos</span>, my pronouns are <span class="highlighted-text">he/him</span>, and I'm a <span class="highlighted-text">31yo cis man</span>. I'm a <span class="highlighted-text">Brazilian</span> person living in <span class="highlighted-text">Salvador, Bahia</span>. I can communicate a little bit in <span class="highlighted-text">English</span> but my native language is <span class="highlighted-text">Portuguese</span>. I'm  racially <span class="highlighted-text">biracial</span> (<span class="highlighted-text">black</span> dad and <span class="highlighted-text">white</span> mom), and ethnically <span class="highlighted-text">latino</span> by both of my parents and myself. And last but not least, I'm a <span class="highlighted-text">Software Developer</span>, specialized in the last few years in <span class="highlighted-text">Front-End</span> development.</li>
+            <li>Hello! My name is <span class="highlighted-text">Raniere Souza Santos</span>, my pronouns are <span class="highlighted-text">he/him</span>, and I'm a <span class="highlighted-text">{{myAge}}yo cis man</span>. I'm a <span class="highlighted-text">Brazilian</span> person living in <span class="highlighted-text">Salvador, Bahia</span>. I can communicate a little bit in <span class="highlighted-text">English</span> but my native language is <span class="highlighted-text">Portuguese</span>. I'm  racially <span class="highlighted-text">biracial</span> (<span class="highlighted-text">black</span> dad and <span class="highlighted-text">white</span> mom), and ethnically <span class="highlighted-text">latino</span> by both of my parents and myself. And last but not least, I'm a <span class="highlighted-text">Software Developer</span>, specialized in the last few years in <span class="highlighted-text">Front-End</span> development.</li>
           </ul>
         </li>
 
@@ -149,7 +149,12 @@
     isOddSection.value = !!(currentSection?.index % 2);
   }
 
-  const currentYear = (new Date()).getFullYear();
+  const now = new Date();
+  const currentYear = now.getFullYear();
+  now.setDate(now.getDate() - 6); // go to last month if now is before current month's 7th
+  now.setMonth(now.getMonth() - 9); // go to last year if now is before October
+  const birthYear = 1991;
+  const myAge = now.getFullYear() - birthYear;
 </script>
 
 <style>
