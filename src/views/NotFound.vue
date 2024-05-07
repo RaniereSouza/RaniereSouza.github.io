@@ -5,7 +5,7 @@
     </p>
 
     <p class="text-box elevated not-found-subtitle">
-      We could not find a page for the address <code>{{ currentRoute }}</code>. Looking for something else? 🤔
+      We could not find a page for the address <code>{{currentRoute}}</code>. Looking for something else? 🤔
     </p>
 
     <footer>
@@ -44,7 +44,7 @@
   }
 
   code {
-    background-color: #ccc;
+    background-color: var(--highlight-color-lighter);
     padding: .125rem;
   }
 

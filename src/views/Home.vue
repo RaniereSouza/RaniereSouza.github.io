@@ -192,6 +192,10 @@
     background-color: hsl(127, 53%, 88%);
   }
 
+  section:last-of-type {
+    min-height: calc(min(100vh, 100%) - 2.2rem);
+  }
+
   section + footer {
     background-color: var(--highlight-color);
     color: var(--font-color-light);
@@ -263,6 +267,7 @@
   }
 
   footer {
+    height: 2.2rem;
     padding: var(--default-spacing);
     text-align: center;
   }
