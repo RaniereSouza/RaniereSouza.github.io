@@ -8,7 +8,7 @@
           </a>
         </div>
         <div class="carousel-card-body">
-          <h3>nTopus</h3>
+          <h3>Ntopus</h3>
           <p>Technological ecosystem of tools designed to help on Emergency Management and Mission-critical Environments, using real-time device tracking, sensors, multiple variations of wireless communication, and other things. It's my current workplace.</p>
         </div>
         <div class="carousel-card-footer">

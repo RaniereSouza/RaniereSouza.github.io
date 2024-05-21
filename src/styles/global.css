@@ -16,7 +16,7 @@
   --default-spacing: var(--default-spacing-y) var(--default-spacing-x);
   --highlight-color: hsl(217, 71%, 55%); /* rgb(57, 119, 222) #3977de */
   --highlight-color-darker: hsl(217, 71%, 42.5%); /* rgb(31, 89, 183) #1f59b7 */
-  --highlight-color-lighter: hsl(217, 71%, 85%);
+  --highlight-color-lighter: hsl(217, 71%, 92.5%);
   --default-shadow: .125rem .25rem .5rem rgba(0, 0, 0, .5);
   --default-border-radius: .375rem;
   --default-contained-width: min(90vw, 45rem);
@@ -144,13 +144,22 @@ code, pre {
   color: var(--font-color-light);
   transition: background-color .2s;
 }
-
 .default-btn:hover {
   background-color: var(--highlight-color-darker);
 }
-
 .default-btn > .material-icons {
   font-size: 1rem;
+}
+.default-btn > .material-icons.compact {
+  font-size: .75rem;
+}
+.default-btn > .material-icons, .default-btn > .material-icons.prepend {
+  margin-right: -0.125rem;
+  margin-left: 0;
+}
+.default-btn > .material-icons.append {
+  margin-right: 0;
+  margin-left: -0.125rem;
 }
 
 .pill-btn {
@@ -159,6 +168,8 @@ code, pre {
 
 .text-box {
   background-color: rgba(255, 255, 255, .75);
+  -webkit-backdrop-filter: blur(.0625rem);
+  backdrop-filter: blur(.0625rem);
   padding: var(--default-spacing);
   border-radius: var(--default-border-radius);
   line-height: 1.5rem;

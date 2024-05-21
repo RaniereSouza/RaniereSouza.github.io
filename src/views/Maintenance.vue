@@ -6,7 +6,7 @@
 
     <footer>
       Go to my <a class="default-btn pill-btn" href="https://github.com/RaniereSouza">
-        GitHub Profile <span class="material-icons">north_east</span>
+        GitHub Profile <span class="material-icons compact append">north_east</span>
       </a>
     </footer>
   </main>

@@ -62,10 +62,27 @@
 
 <style scoped>
   header {
+    --nav-btn-size: 3rem;
+    --nav-btn-half-size: calc(var(--nav-btn-size) / 2);
+
     position: fixed;
     top: 1rem;
     right: max(calc(40vw - (var(--default-contained-width) / 2)), 2.5vw);
     z-index: 3;
+    transition: top .2s, right .2s;
+  }
+
+  header:has(nav:not(.collapsed)), header:has(nav .menu-icon:hover) {
+    right: calc(
+      max(calc(40vw - (var(--default-contained-width) / 2)), 2.5vw)
+      - (var(--nav-btn-half-size) * .125)
+    );
+  }
+
+  @media screen and (max-width: 575px) {
+    header:has(nav:not(.collapsed)), header:has(nav .menu-icon:hover) {
+      top: calc(1rem - (var(--nav-btn-half-size) * .125));
+    }
   }
 
   nav, nav .nav-links {
@@ -75,9 +92,6 @@
   }
 
   nav {
-    --nav-btn-size: 3rem;
-    --nav-btn-half-size: calc(var(--nav-btn-size) / 2);
-
     height: var(--nav-btn-size);
     border: 1px solid #e8e8e8;
     border-right: none;
@@ -114,6 +128,7 @@
 
   @media screen and (max-width: 575px) {
     nav {
+      border-top-right-radius: calc(var(--nav-btn-half-size) * 1.125);
       border-bottom-right-radius: var(--default-border-radius);
       height: auto;
       align-items: flex-start;
@@ -125,8 +140,9 @@
       align-items: flex-end;
       padding-top: var(--nav-btn-size);
       padding-bottom: var(--nav-btn-size);
+      padding-left: var(--nav-btn-half-size);
       gap: var(--nav-btn-size);
-      margin-right: -0.5rem;
+      margin-right: -0.125rem;
     }
   }
 
@@ -138,6 +154,12 @@
     white-space: nowrap;
     text-decoration: none;
     color: var(--highlight-color);
+    opacity: 1;
+    transition: opacity .2;
+  }
+
+  nav.collapsed .nav-links a {
+    opacity: 0;
   }
 
   nav .nav-links a:hover {
@@ -145,8 +167,9 @@
     border-color: var(--highlight-color-darker);
   }
 
-  nav .nav-links a .material-icons {
-    font-size: 1rem;
+  nav .nav-links :deep(a .material-icons) {
+    font-size: .75rem;
+    margin-left: -0.125rem;
   }
 
   nav .menu-icon {
@@ -159,7 +182,17 @@
     background-color: var(--highlight-color);
     font-size: var(--nav-btn-half-size);
     color: var(--font-color-light);
-    transition: background-color .2s, color .2s;
+    transition: background-color .2s,
+                color .2s,
+                width .2s,
+                height .2s,
+                border-radius .2s;
+  }
+
+  nav:not(.collapsed) .menu-icon, nav .menu-icon:hover {
+    width: calc(var(--nav-btn-size) * 1.125);
+    height: calc(var(--nav-btn-size) * 1.125);
+    border-radius: calc(var(--nav-btn-half-size) * 1.125);
   }
 
   nav .menu-icon:hover {
