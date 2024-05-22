@@ -140,6 +140,8 @@
   }
 
   .carousel {
+    --cards-shown: 2.125;
+
     display: flex;
     gap: var(--default-spacing-x);
     list-style: none;
@@ -152,13 +154,16 @@
     flex-direction: column;
     border-radius: var(--default-border-radius);
     background-color: #fff;
-    width: calc((var(--default-contained-width) / 2) - (var(--default-spacing-x) / 2));
+    width: calc(
+      (var(--default-contained-width) / var(--cards-shown))
+      - (var(--default-spacing-x) / var(--cards-shown))
+    );
     overflow: hidden;
   }
 
   @media screen and (max-width: 575px) {
     .carousel-card {
-      width: var(--default-contained-width);
+      --cards-shown: 1.125;
     }
   }
 

@@ -4,6 +4,7 @@
       <div class="nav-links">
         <a
           v-for="item of navItems"
+          :class="{active: !!item.active}"
           :href="item.href"
           v-html="item.textContent"
           @click="item.action?.($event)"
@@ -52,7 +53,7 @@
       left: 0;
       width: 100vw;
       height: 100vh;
-      background-color:rgba(0, 0, 0, .125);
+      background-color:rgba(0, 0, 0, .25);
       -webkit-backdrop-filter: blur(.25rem);
       backdrop-filter: blur(.25rem);
       z-index: 2;
@@ -151,6 +152,7 @@
     align-items: center;
     gap: calc(var(--default-spacing-x) / 3);
     border-bottom: 1px solid transparent;
+    padding: 0 .375rem;
     white-space: nowrap;
     text-decoration: none;
     color: var(--highlight-color);
@@ -165,6 +167,14 @@
   nav .nav-links a:hover {
     color: var(--highlight-color-darker);
     border-color: var(--highlight-color-darker);
+  }
+
+  nav .nav-links a.active, nav .nav-links a.active:hover {
+    color: var(--highlight-color-darker);
+    border-radius: calc(var(--default-border-radius) / 2);
+    border-bottom: none;
+    padding: .125rem .375rem;
+    background-color: var(--highlight-color-lighter);
   }
 
   nav .nav-links :deep(a .material-icons) {

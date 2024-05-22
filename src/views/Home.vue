@@ -39,7 +39,7 @@
 </template>
 
 <script setup>
-  import { ref } from 'vue';
+  import { ref, onMounted, watch } from 'vue';
 
   import { remToPx } from '../lib/helpers';
 
@@ -48,8 +48,9 @@
   import WhoAmI from '../components/WhoAmI.vue';
   import Carousel from '../components/Carousel.vue';
 
-  const showNav = ref();
+  const currentYear = (new Date()).getFullYear();
 
+  const showNav = ref();
   function toggleShowNav() {
     showNav.value = !showNav.value;
   }
@@ -60,54 +61,65 @@
     document.querySelector(event.target.hash)?.scrollIntoView({behavior: 'smooth'});
   }
 
-  const navItems = [
-    {href: '#start', textContent: 'Start', action: scrollToSection},
-    {href: '#about-me', textContent: 'About Me', action: scrollToSection},
+  const navItems = ref([
+    {href: '#start',     textContent: 'Start',              action: scrollToSection},
+    {href: '#about-me',  textContent: 'About Me',           action: scrollToSection},
     {href: '#portfolio', textContent: 'Works and Projects', action: scrollToSection},
-    {href: '#resume', textContent: 'Resume', action: scrollToSection},
+    {href: '#resume',    textContent: 'Resume',             action: scrollToSection},
     {href: 'https://github.com/RaniereSouza', textContent: /* html */`
       GitHub Profile <span class="material-icons">north_east</span>
     `},
-  ];
+  ]);
 
   const sectionTransitionThreshold = remToPx(2.5) + 1;
-
+  const currentSectionData = ref({});
   function getCurrentSection() {
-    let currenctSectionData;
-
-    Array.from(document.querySelectorAll('section')).some((section, index) => {
-      const rect = section.getClientRects()[0];
+    Array.from(document.querySelectorAll('section')).some((sectionEl, index) => {
+      const sectionRect = sectionEl.getClientRects()[0];
 
       if (
-        (rect.top <= sectionTransitionThreshold) &&
-        (rect.bottom >= sectionTransitionThreshold)
+        (sectionRect.top <= sectionTransitionThreshold)
+        && (sectionRect.bottom >= sectionTransitionThreshold)
       ) {
-        currenctSectionData = {
-          id: section.id,
-          index: index,
+        currentSectionData.value = {
+          id: sectionEl.id,
+          index,
         };
         return true;
       }
 
       return false;
     });
-
-    return currenctSectionData;
   }
 
   const isOddSection = ref(false);
-
   function toggleIsOddSection() {
-    const currentSection = getCurrentSection();
-    isOddSection.value = !!(currentSection?.index % 2);
+    isOddSection.value = !!(currentSectionData.value?.index % 2);
+  }
+
+  function setActiveNav() {
+    if (isNaN(Number(currentSectionData.value.index))) getCurrentSection();
+    const currentSection = currentSectionData.value;
+
+    navItems.value.some(item => {
+      if (!item.active) return false;
+      item.active = false; return true;
+    });
+
+    navItems.value[currentSection.index].active = true;
   }
 
   function handleMainScroll(event) {
     window.dispatchEvent(new CustomEvent('main-scroll', {detail: event}));
-    toggleIsOddSection();
+    getCurrentSection();
   }
 
-  const currentYear = (new Date()).getFullYear();
+  onMounted(() => {
+    setActiveNav();
+    watch(currentSectionData, () => {
+      setActiveNav(); toggleIsOddSection();
+    });
+  });
 </script>
 
 <style>
