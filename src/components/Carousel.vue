@@ -149,6 +149,12 @@
     width: max-content;
   }
 
+  @media screen and (max-width: 575px) {
+    .carousel {
+      --cards-shown: 1.125;
+    }
+  }
+
   .carousel-card {
     display: flex;
     flex-direction: column;
@@ -159,12 +165,6 @@
       - (var(--default-spacing-x) / var(--cards-shown))
     );
     overflow: hidden;
-  }
-
-  @media screen and (max-width: 575px) {
-    .carousel-card {
-      --cards-shown: 1.125;
-    }
   }
 
   .carousel-card.ending-card {
