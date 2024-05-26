@@ -25,11 +25,7 @@
 
     <section id="resume">
       <h2>Resume</h2>
-      <iframe
-        src="https://drive.google.com/file/d/1qEuA4XMU-3Dds3XmjNG9KIujXZ9EmJpw/preview"
-        title="Resume PDF Preview from Google Drive"
-        allow="autoplay,fullscreen"
-      />
+      <resume />
     </section>
 
     <footer>
@@ -47,6 +43,7 @@
   import Waves from '../components/animations/Waves.vue';
   import WhoAmI from '../components/WhoAmI.vue';
   import Carousel from '../components/Carousel.vue';
+  import Resume from '../components/Resume.vue';
 
   const currentYear = (new Date()).getFullYear();
 
@@ -234,17 +231,6 @@
     background-blend-mode: lighten;
     background-size: max(50vw, 50vh) auto;
     background-position: center center;
-  }
-
-  section#resume iframe {
-    width: var(--default-contained-width);
-    height: 36rem;
-  }
-
-  @media screen and (max-width: 575px) {
-    section#resume iframe {
-      height: min(36rem, 65vh);
-    }
   }
 
   footer {
