@@ -30,6 +30,15 @@
 
     <footer>
       &copy;Raniere Souza Santos, {{currentYear}}
+      <a href="mailto:raniere.souza.cc@gmail.com" title="Email">
+        <span class="material-icons">alternate_email</span>
+      </a>
+      <a href="https://t.me/raniere_souza" title="Telegram">
+        <span class="material-icons">send</span>
+      </a>
+      <a href="https://wa.me/5571991655209" title="WhatsApp">
+        <span class="material-icons">phone</span>
+      </a>
     </footer>
   </main>
 </template>
@@ -237,6 +246,31 @@
     height: 2.2rem;
     padding: var(--default-spacing);
     text-align: center;
+    display: inline-flex;
+    width: min(100vw, 100%);
+    justify-content: center;
+    gap: 1.5rem;
+  }
+
+  footer a {
+    padding-left: 1.5rem;
+    border-left: 1px dashed #fff;
+    color: var(--font-color-light);
+    text-decoration: none;
+  }
+
+  footer a .material-icons {
+    font-size: 1.25rem;
+  }
+
+  @media screen and (max-width: 575px) {
+    footer {
+      gap: .75rem;
+    }
+
+    footer a {
+      padding-left: .75rem;
+    }
   }
 </style>
 
