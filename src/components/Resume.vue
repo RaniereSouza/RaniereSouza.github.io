@@ -1,13 +1,11 @@
 <template>
-  <div
-    class="resume-wrapper"
-    :title="`Resume PDF Preview from Google Drive - ${langDescriptions[selectedLang]}`"
-  >
+  <div class="resume-wrapper">
     <ul class="lang-switcher elevated">
       <li
         v-for="lang of resumeLangs"
         :class="{selected: lang === selectedLang}"
         @click="() => selectedLang = lang"
+        v-tooltip="langDescriptions[lang]"
       >
         {{lang}}
       </li>
@@ -21,6 +19,8 @@
 
 <script setup>
   import { ref } from 'vue';
+
+  import vTooltip from './directives/vTooltip';
 
   const resumeSrcs = Object.freeze({
     'en': 'https://drive.google.com/file/d/1UFiwvu-rx3VvMYrR2cw9FskmdvhFKSPF/preview',

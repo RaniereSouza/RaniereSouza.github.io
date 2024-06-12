@@ -9,7 +9,7 @@
         </div>
         <div class="carousel-card-body">
           <h3>Ntopus</h3>
-          <p>Technological ecosystem of tools designed to help on Emergency Management and Mission-critical Environments, using real-time device tracking, sensors, multiple variations of wireless communication, and other things. It's my current workplace.</p>
+          <p v-tooltip:wait-5000>Technological ecosystem of tools designed to help on Emergency Management and Mission-critical Environments, using real-time device tracking, sensors, multiple variations of wireless communication, and other things. It's my current workplace.</p>
         </div>
         <div class="carousel-card-footer">
           <span class="default-btn pill-btn tag">HTML</span>
@@ -34,7 +34,7 @@
         </div>
         <div class="carousel-card-body">
           <h3>Radar SEBRAE</h3>
-          <p>Analysis and ranking of business oportunities by category using various criteria such as: geographic location, population size, average income, companies average lifetime, and many others; It also offers tips about how to start a business. It was my previous job.</p>
+          <p v-tooltip:wait-5000>Analysis and ranking of business oportunities by category using various criteria such as: geographic location, population size, average income, companies average lifetime, and many others; It also offers tips about how to start a business. It was my previous job.</p>
         </div>
         <div class="carousel-card-footer">
           <span class="default-btn pill-btn tag">HTML</span>
@@ -54,7 +54,7 @@
         </div>
         <div class="carousel-card-body">
           <h3>heimdall-visual-test</h3>
-          <p>A work-in-progress personal project for a NPM Package to be used as a Visual Regression Testing tool for JavaScript, in integration with applications like the Cypress platform, for example. It's pretty much in infant stage.</p>
+          <p v-tooltip:wait-5000>A work-in-progress personal project for a NPM Package to be used as a Visual Regression Testing tool for JavaScript, in integration with applications like the Cypress platform, for example. It's pretty much in infant stage.</p>
         </div>
         <div class="carousel-card-footer">
           <span class="default-btn pill-btn tag">JavaScript</span>
@@ -74,7 +74,7 @@
         </div>
         <div class="carousel-card-body">
           <h3>RPG Grid Map</h3>
-          <p>A work-in-progress personal project for a Web Application to be used as a minimalistic helping tool for Tabletop RPGs, specifically for handling maps, scenarios, dungeons, terrain, positioning and movement. It's not even in it's beta version yet.</p>
+          <p v-tooltip:wait-5000>A work-in-progress personal project for a Web Application to be used as a minimalistic helping tool for Tabletop RPGs, specifically for handling maps, scenarios, dungeons, terrain, positioning and movement. It's not even in it's beta version yet.</p>
         </div>
         <div class="carousel-card-footer">
           <span class="default-btn pill-btn tag">HTML</span>
@@ -98,7 +98,7 @@
         </div>
         <div class="carousel-card-body">
           <h3>This page! &#x1F609;</h3>
-          <p>I've never published anything on GitHub Pages before, and I've also never had a presentation/portfolio page, so I wanted to see what I could do.</p>
+          <p v-tooltip:wait-5000>I've never published anything on GitHub Pages before, and I've also never had a presentation/portfolio page, so I wanted to see what I could do.</p>
         </div>
         <div class="carousel-card-footer">
           <span class="default-btn pill-btn tag">HTML</span>
@@ -119,7 +119,7 @@
 </template>
 
 <script setup>
-
+  import vTooltip from './directives/vTooltip';
 </script>
 
 <style scoped>
