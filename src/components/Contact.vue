@@ -52,7 +52,8 @@
 
   .contact-text:not(.disabled):hover {
     transform: translateY(.125rem);
-    box-shadow: .125rem .25rem .875rem rgba(0, 0, 0, .5);;
+    box-shadow: .125rem .25rem .875rem rgba(0, 0, 0, .5);
+    background-color: var(--highlight-color-darker);
   }
 
   .contact-text.disabled {
