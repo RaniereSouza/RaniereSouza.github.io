@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Fira+Sans&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Fira+Code&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');
 @import url('https://fonts.googleapis.com/icon?family=Material+Icons');
 @import url('https://fonts.googleapis.com/icon?family=Material+Icons+Outlined');
 @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css');
@@ -9,6 +10,7 @@
   --title-font: 'Raleway', sans-serif;
   --regular-font: 'Fira Sans', sans-serif;
   --code-font: 'Fira Code', monospace;
+  --highlight-font: 'Quicksand', 'Fira Sans', sans-serif;
   --font-color-dark: #333;
   --font-color-light: #fff;
   --default-spacing-x: .75rem;
@@ -144,6 +146,7 @@ code, pre {
 }
 
 .highlighted-text {
+  font-family: var(--highlight-font);
   color: var(--highlight-color);
 }
 

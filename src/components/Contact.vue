@@ -34,6 +34,7 @@
     padding: .5rem .75rem;
     background-color: var(--highlight-color);
     color: #fff;
+    font-family: var(--highlight-font);
     font-weight: bold;
     text-decoration: none;
     border-radius: 1.1rem;

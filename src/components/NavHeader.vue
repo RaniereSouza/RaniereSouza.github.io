@@ -119,6 +119,8 @@
     padding: 0 var(--default-spacing-x) 0 calc(var(--default-spacing-x) * 2);
     width: calc(100% - var(--nav-btn-size));
     overflow: hidden;
+    font-family: var(--highlight-font);
+    font-weight: 600;
     transition: width .2s ease, height .2s ease, padding .2s ease;
   }
 

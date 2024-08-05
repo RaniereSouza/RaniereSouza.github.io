@@ -1,7 +1,7 @@
 <template>
   <main>
     <p class="not-found-title">
-      <span class="highlighted-text">404:</span> Not Found<span class="highlighted-text">...</span>
+      <span class="highlighted-text">404:</span>&nbsp;Not Found<span class="highlighted-text">...</span>
     </p>
 
     <p class="text-box elevated not-found-subtitle">
@@ -30,6 +30,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    gap: 1rem;
     background:
       url("../assets/empty-road.jpg")
       no-repeat
@@ -80,7 +81,14 @@
 
   .not-found-title {
     font-size: 4rem;
+    font-weight: 500;
     text-shadow: var(--default-shadow);
+    display: inline-flex;
+    align-items: baseline;
+  }
+
+  .not-found-title, .not-found-title .highlighted-text {
+    font-family: var(--title-font);
   }
 
   .not-found-subtitle {

@@ -4,7 +4,7 @@
       <li class="carousel-card">
         <div class="carousel-card-img">
           <a href="https://ntopus.com.br/" target="_blank">
-            <img src="../assets/ntopus-home.jpg" alt="" />
+            <img src="../assets/ntopus-home.jpg" v-smart-img />
           </a>
         </div>
         <div class="carousel-card-body">
@@ -29,7 +29,7 @@
       <li class="carousel-card">
         <div class="carousel-card-img">
           <a href="https://radarsebrae.com.br/" target="_blank">
-            <img src="../assets/radar-sebrae-home.jpg" alt="" />
+            <img src="../assets/radar-sebrae-home.jpg" v-smart-img />
           </a>
         </div>
         <div class="carousel-card-body">
@@ -49,7 +49,7 @@
       <li class="carousel-card">
         <div class="carousel-card-img">
           <a href="https://www.npmjs.com/package/heimdall-visual-test" target="_blank">
-            <img class="alt-icon-npm" src="" alt="&#xf3d4;" />
+            <img src="" alt="&#xf3d4;" class="alt-icon-npm" v-smart-img />
           </a>
         </div>
         <div class="carousel-card-body">
@@ -69,7 +69,7 @@
       <li class="carousel-card">
         <div class="carousel-card-img">
           <a href="https://github.com/RaniereSouza/rpg-grid-map" target="_blank">
-            <img class="alt-icon-github" src="" alt="&#xf09b;" />
+            <img src="" alt="&#xf09b;" class="alt-icon-github" v-smart-img />
           </a>
         </div>
         <div class="carousel-card-body">
@@ -93,7 +93,7 @@
       <li class="carousel-card">
         <div class="carousel-card-img">
           <a href="https://github.com/RaniereSouza/RaniereSouza.github.io" target="_blank">
-            <img src="../assets/presentation-home.jpg" alt="" />
+            <img src="../assets/presentation-home.jpg" v-smart-img />
           </a>
         </div>
         <div class="carousel-card-body">
@@ -120,6 +120,7 @@
 
 <script setup>
   import vTooltip from './directives/vTooltip';
+  import vSmartImg from './directives/vSmartImg';
 </script>
 
 <style scoped>
@@ -188,20 +189,18 @@
     border-bottom: 1px solid #e6e6e6;
   }
 
-  .carousel-card-img a, .carousel-card-img img {
+  .carousel-card-img a {
     display: flex;
     align-items: center;
     justify-content: center;
     height: 100%;
-  }
-
-  .carousel-card-img a {
     width: max-content;
     text-decoration: none;
     color: inherit;
   }
-
-  .carousel-card-img img {
+  
+  .carousel-card-img .smart-img-true, .carousel-card-img .smart-img-alt {
+    height: 100%;
     font-family: 'Material Icons Outlined';
     color: #f6f6f6;
     font-size: 8rem;
@@ -210,17 +209,18 @@
     transition: transform .2s ease, filter .2s ease;
   }
 
-  .carousel-card:hover .carousel-card-img img {
+  .carousel-card:hover .carousel-card-img .smart-img-true,
+  .carousel-card:hover .carousel-card-img .smart-img-alt {
     transform: scale(1) translateY(0);
     filter: opacity(1) blur(0) brightness(1);
   }
 
-  .carousel-card-img img.alt-icon-npm { /* NPM icon &#xf3d4; */
+  .carousel-card-img .alt-icon-npm { /* NPM icon &#xf3d4; */
     font-family: 'Font Awesome 6 Brands';
     color: #c53635;
   }
 
-  .carousel-card-img img.alt-icon-github { /* GitHub icon &#xf09b; */
+  .carousel-card-img .alt-icon-github { /* GitHub icon &#xf09b; */
     font-family: 'Font Awesome 6 Brands';
     color: #29017f;
   }

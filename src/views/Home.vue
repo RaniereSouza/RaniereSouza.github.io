@@ -210,9 +210,7 @@
 
   section .text-box .highlighted-text {
     color: #444;
-    text-decoration: underline;
-    text-decoration-color: var(--highlight-color-darker);
-    font-weight: 600;
+    font-weight: bold;
   }
 
   section#start a[href="#about-me"], section#start a[href="#portfolio"] {
