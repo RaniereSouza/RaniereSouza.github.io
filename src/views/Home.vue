@@ -8,7 +8,7 @@
 
     <section id="start">
       <h1>Welcome, Traveler!<span class="highlighted-text blink">_</span></h1>
-      <img class="profile-pic" src="../assets/profile-pic.jpg" alt="RS" title="Raniere Souza Santos"/>
+      <rotating-img class="profile-pic" alt="RS" title="Raniere Souza Santos" :imgSrcs="profileImgSrcs" />
       <p class="text-box">I'm <span class="highlighted-text">Raniere</span>, and I'm a <span class="highlighted-text">Programmer/Software Developer</span>. Here you'll learn a little bit <a class="highlighted-text" href="#about-me" @click="scrollToSection">about me</a>, my <a class="highlighted-text" href="#portfolio" @click="scrollToSection">work</a> and my interests &#x1F604;</p>
       <waves />
     </section>
@@ -43,6 +43,7 @@
   import { remToPx } from '../lib/helpers';
 
   import NavHeader from '../components/NavHeader.vue';
+  import RotatingImg from '../components/RotatingImg.vue';
   import Waves from '../components/animations/Waves.vue';
   import WhoAmI from '../components/WhoAmI.vue';
   import Carousel from '../components/Carousel.vue';
@@ -114,6 +115,11 @@
     window.dispatchEvent(new CustomEvent('main-scroll', {detail: event}));
     getCurrentSection();
   }
+
+  const profileImgSrcs = [
+    new URL('../assets/profile-pic.jpg', import.meta.url),
+    new URL('../assets/profile-pic2.jpg', import.meta.url),
+  ];
 
   onMounted(() => {
     setActiveNav();
@@ -212,7 +218,7 @@
   .profile-pic {
     overflow: hidden;
     width: min(50vw, 12.5rem);
-    height: auto;
+    height: min(50vw, 12.5rem);
     border-radius: 50%;
   }
 
