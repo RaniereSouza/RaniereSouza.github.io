@@ -119,6 +119,9 @@
   const profileImgSrcs = [
     new URL('../assets/profile-pic.jpg', import.meta.url),
     new URL('../assets/profile-pic2.jpg', import.meta.url),
+    new URL('../assets/profile-pic3.jpg', import.meta.url),
+    new URL('../assets/profile-pic4.jpg', import.meta.url),
+    new URL('../assets/profile-pic5.jpg', import.meta.url),
   ];
 
   onMounted(() => {

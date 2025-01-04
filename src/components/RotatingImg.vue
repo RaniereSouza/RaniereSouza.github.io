@@ -15,7 +15,7 @@
     },
     idleTimeMS: {
       type: Number,
-      default: 5000, // 5 seconds
+      default: 6000, // 6 seconds
     },
     transitionTimeMS: {
       type: Number,
