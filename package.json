@@ -14,9 +14,9 @@
   "author": "Raniere de Souza Santos <raniere.souza.cc@gmail.com>",
   "license": "ISC",
   "devDependencies": {
-    "@vitejs/plugin-vue": "^4.2.3",
-    "vite": "^4.3.9",
-    "vue": "^3.3.4",
+    "@vitejs/plugin-vue": "^5.2.1",
+    "vite": "^5.4.14",
+    "vue": "^3.5.13",
     "vue-router": "^4.2.1"
   }
 }
