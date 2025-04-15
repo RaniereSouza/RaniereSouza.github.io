@@ -69,8 +69,8 @@
 
   .contact-text i {
     font-style: normal;
-    font-size: 1.5rem;
-    height: 1.5rem;
+    font-size: 1.125rem;
+    height: 1.125rem;
     overflow: hidden;
     margin: -0.25rem 0;
     display: inline-flex;

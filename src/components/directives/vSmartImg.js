@@ -10,7 +10,7 @@ const vSmartImg = {
       'title', element.getAttribute('title')
     );
     altEl.innerText = element.getAttribute('alt') || '∅';
-    altEl.style = /* css */`
+    altEl.style = `
       display: flex;
       align-items: center;
       justify-content: center;

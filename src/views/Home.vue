@@ -29,7 +29,7 @@
     </section>
 
     <section id="contact">
-      <h2>Contact me! :D</h2>
+      <h2>Contact me! :D<span class="highlighted-text blink">_</span></h2>
       <contact />
     </section>
 
