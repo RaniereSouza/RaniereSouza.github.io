@@ -16,4 +16,6 @@
         .finally(() => localStorage.removeItem('@ranieresouza.github.io:path'));
     }
   });
+
+  console.debug('[DEBUG] Current import.meta.env:', import.meta.env)
 </script>
