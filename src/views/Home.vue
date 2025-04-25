@@ -124,15 +124,11 @@
     new URL('../assets/profile-pic5.jpg', import.meta.url),
   ];
 
-  const importMetaEnv = () => import.meta.env
   onMounted(() => {
     setActiveNav();
     watch(currentSectionData, () => {
       setActiveNav(); toggleIsOddSection();
     });
-
-    console.log('[DEBUG] Home page just mounted.')
-    console.log('[DEBUG] Current import.meta.env:', importMetaEnv())
   });
 </script>
 

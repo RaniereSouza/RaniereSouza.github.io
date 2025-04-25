@@ -3,7 +3,7 @@
 </template>
 
 <script setup>
-  import { onBeforeMount } from 'vue';
+  import { onBeforeMount, onMounted } from 'vue';
   import { useRouter } from 'vue-router';
 
   onBeforeMount(() => {
@@ -16,4 +16,10 @@
         .finally(() => localStorage.removeItem('@ranieresouza.github.io:path'));
     }
   });
+
+  const importMetaEnv = () => import.meta.env
+  onMounted(() => {
+    console.log('[DEBUG] Home page just mounted.')
+    console.log('[DEBUG] Current import.meta.env:', importMetaEnv())
+  })
 </script>
