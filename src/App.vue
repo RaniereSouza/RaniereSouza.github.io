@@ -3,7 +3,7 @@
 </template>
 
 <script setup>
-  import { onBeforeMount, onMounted } from 'vue';
+  import { onBeforeMount } from 'vue';
   import { useRouter } from 'vue-router';
 
   onBeforeMount(() => {
