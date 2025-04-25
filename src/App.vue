@@ -1,8 +1,5 @@
 <template>
   <router-view></router-view>
-  <div style="display: none;">
-    [DEBUG] Current import.meta.env: {{ importMetaEnv() }}
-  </div>
 </template>
 
 <script setup>
@@ -19,8 +16,4 @@
         .finally(() => localStorage.removeItem('@ranieresouza.github.io:path'));
     }
   });
-
-  const importMetaEnv = () => import.meta.env
-
-  console.debug('[DEBUG] Current import.meta.env:', importMetaEnv())
 </script>
