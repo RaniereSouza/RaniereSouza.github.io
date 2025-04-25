@@ -40,6 +40,8 @@ jobs:
         run: npm ci
       - name: Build
         run: npm run build:prod
+        env:
+          VITE_MAINTENANCE_MODE: ${{ env.MAINTENANCE_MODE }}
       - name: Setup Pages
         uses: actions/configure-pages@v4
       - name: Upload artifact
