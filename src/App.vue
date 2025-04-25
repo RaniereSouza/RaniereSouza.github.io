@@ -1,5 +1,8 @@
 <template>
   <router-view></router-view>
+  <div style="display: none;">
+    [DEBUG] Current import.meta.env: {{ import.meta.env }}
+  </div>
 </template>
 
 <script setup>
