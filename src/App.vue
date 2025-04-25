@@ -19,7 +19,7 @@
 
   const importMetaEnv = () => import.meta.env
   onMounted(() => {
-    console.log('[DEBUG] Home page just mounted.')
+    console.log('[DEBUG] Main App component just mounted.')
     console.log('[DEBUG] Current import.meta.env:', importMetaEnv())
   })
 </script>
