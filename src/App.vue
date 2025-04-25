@@ -1,7 +1,7 @@
 <template>
   <router-view></router-view>
   <div style="display: none;">
-    [DEBUG] Current import.meta.env: {{ import.meta.env }}
+    [DEBUG] Current import.meta.env: {{ importMetaEnv() }}
   </div>
 </template>
 
@@ -20,5 +20,7 @@
     }
   });
 
-  console.debug('[DEBUG] Current import.meta.env:', import.meta.env)
+  const importMetaEnv = () => import.meta.env
+
+  console.debug('[DEBUG] Current import.meta.env:', importMetaEnv())
 </script>
